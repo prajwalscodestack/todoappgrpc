@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package todo;
+
+option go_package = "todoappgrpc/todo/proto";
+
+message TodoRequest{
+    string id           = 1;
+    string title        = 2;
+    string desc         = 3;
+    bool   isCompleted  = 4;
+}
+message TodoResponse{
+   string result = 1;
+}
+service TodoService{
+    rpc SaveTodo(TodoRequest)returns(TodoResponse);
+}
